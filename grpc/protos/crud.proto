@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package crud;
+
+service ItemService {
+  rpc CreateItem (Item) returns (ItemResponse);
+  rpc GetItem (ItemRequest) returns (Item);
+  rpc UpdateItem (Item) returns (ItemResponse);
+  rpc DeleteItem (ItemRequest) returns (ItemResponse);
+}
+
+message Item {
+  string id = 1;
+  string name = 2;
+}
+
+message ItemRequest {
+  string id = 1;
+}
+
+message ItemResponse {
+  bool success = 1;
+  string message = 2;
+}
